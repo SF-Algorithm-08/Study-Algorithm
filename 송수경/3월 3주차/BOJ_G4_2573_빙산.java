@@ -1,5 +1,4 @@
 package boj.Gold;
-//12% 런타임에러
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,7 +25,7 @@ public class BOJ_G4_2573_빙산 {
 		info = new int[N][M];	//빙산 정보
 		for(int i=0; i<N; i++) {
 			st = new StringTokenizer(br.readLine()," ");
-			for(int j=0; j<N; j++) {
+			for(int j=0; j<M; j++) {
 				info[i][j] = Integer.parseInt(st.nextToken());
 				//바다면 ArrayList에 담기
 				if(info[i][j]==0) seaList.add(new Sea(i, j));
