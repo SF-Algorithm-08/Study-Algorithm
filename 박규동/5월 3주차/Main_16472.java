@@ -19,25 +19,19 @@ public class Main_16472 {
 		int len = 0;
 		int answer = 0;
 		while (end < str.length()) {
-			if(set.size()==N) {
-				if(set.contains(str.charAt(end))) {
-					alpha[str.charAt(end)-'a']++;
-					end++;
-					len++;
-				}
-				else {
-					alpha[str.charAt(start)-'a']--;
-					if(alpha[str.charAt(start)-'a']==0) set.remove(str.charAt(start));
-					start++;
-					len--;
-				}
+			if (set.size() == N && !set.contains(str.charAt(end))) {
+				alpha[str.charAt(start) - 'a']--;
+				if (alpha[str.charAt(start) - 'a'] == 0)
+					set.remove(str.charAt(start));
+				start++;
+				len--;
 			} else {
-				alpha[str.charAt(end)-'a']++;
+				alpha[str.charAt(end) - 'a']++;
 				set.add(str.charAt(end));
 				end++;
 				len++;
 			}
-			
+
 			answer = Math.max(len, answer);
 
 		}
