@@ -28,31 +28,23 @@ public class BOJ_G2_1561_놀이공원 {
     }
     static int binarySearch(){
         long left = 0l; long right = 60000000000l;
-        long mid = 0l;
+        long time = 0;
         while(left <= right){
-            mid = (left + right) / 2;
-            long cnt = find(mid);
-            // System.out.printf("mid: %d, cnt: %d, mid+1 cnt: %d\n", mid, cnt, find(mid+1));
-
-            if(cnt <= N && N < find(mid+1)){
-                // System.out.printf("gotcha! mid: %d\n", mid);
-                break;
-            } else if(cnt > N){
-                right = mid + 1;
-                // System.out.printf("right+1 == left: %d, right: %d\n", left, right);
+            long mid = (left + right) / 2;
+            long cnt = find(mid);   //사람 수 세기
+            if(cnt >= N){
+                right = mid - 1;
+                time = mid;
             } else{
-                left = mid - 1;
-                // System.out.printf("left-1 == left: %d, right: %d\n", left, right);
+                left = mid + 1;
             }
         }
-        // System.out.printf("--mid: %d, cnt: %d\n", mid, find(mid));
-        long prev = find(mid);
-        // System.out.printf("prev: %d\n", prev);
+        long prev = find(time-1);
         int ret = 0;
         for(int i = 0, idx = 0; i < M; i++){
-            if((mid % rides[i]) == 0)  idx++;
+            if((time % rides[i]) == 0)  idx++;
             if(prev + idx == N){
-                ret = i;
+                ret = i + 1;
                 break;
             }
         }
@@ -66,3 +58,7 @@ public class BOJ_G2_1561_놀이공원 {
         return cnt;
     }
 }
+/*
+7 2
+3 2
+* */

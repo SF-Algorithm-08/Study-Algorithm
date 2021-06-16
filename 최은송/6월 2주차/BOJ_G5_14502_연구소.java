@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class BOJ_G5_14502_연구{
+public class BOJ_G5_14502_연구소 {
     static int map[][], N, M, ans;
     static int dr[] = {-1,1,0,0}, dc[] = {0,0,-1,1};
 
@@ -34,6 +34,7 @@ public class BOJ_G5_14502_연구{
                 System.arraycopy(map[i], 0, copy[i], 0, M);
 
             ans = Math.max(ans, bfs(copy));
+
             return;
         }
         for(int i = 0; i < N; i++){

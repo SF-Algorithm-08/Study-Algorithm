@@ -1,9 +1,11 @@
 package boj;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+
 
 public class BOJ_G4_1963_소수경로{
     static int[] prime = new int[10000];
@@ -67,6 +69,3 @@ public class BOJ_G4_1963_소수경로{
         return ret;
     }
 }
-/*
-
-**/
